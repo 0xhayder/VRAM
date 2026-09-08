@@ -6,8 +6,8 @@ $VRAM is a meme built around the eternal struggle for more GPU memory.
 
 ### Links
 
-**Website:** https://vram.lol
-**X:** https://x.com/vramlabs
+**Website:** https://vram.lol<br>
+**X:** https://x.com/vramlabs<br>
 **Contract:** `0x04250b8b0D6Ce8Cf8b2477F9D451fC508d565472`
 
 ---
