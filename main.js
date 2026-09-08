@@ -7,7 +7,10 @@
 
   // Configuration & Constants
   const SITE = {
-    contract: "[CONTRACT ADDRESS]",
+    contract: "0x04250b8b0D6Ce8Cf8b2477F9D451fC508d565472",
+    buyUrl: "https://www.ponsfamily.com/launchpad/0x04250b8b0D6Ce8Cf8b2477F9D451fC508d565472",
+    xUrl: "https://x.com/VRAMlabs",
+    siteUrl: "https://vram.lol",
     cols: 16,
     rows: 8,
     defaultActiveCell: 61,
@@ -233,7 +236,7 @@
 
     // Token 'BUY $VRAM' action button
     const buyTokenBtn = document.getElementById("buyVramBtnToken");
-    if (buyTokenBtn) {
+    if (buyTokenBtn && buyTokenBtn.tagName === "BUTTON") {
       buyTokenBtn.addEventListener("click", () => showNotice("It’s not more VRAM. It’s $VRAM."));
     }
 
