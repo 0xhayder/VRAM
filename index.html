@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VRAM</title>
+  <meta name="description" content="How much VRAM do you have? It isn’t enough. $VRAM — insufficient memory, infinite meme.">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VRAM">
+  <meta property="og:description" content="How much VRAM do you have? It isn’t enough. $VRAM — insufficient memory, infinite meme.">
+  <meta property="og:image" content="assets/vram-badge.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VRAM">
+  <meta name="twitter:description" content="How much VRAM do you have? It isn’t enough. $VRAM — insufficient memory, infinite meme.">
+  <meta name="twitter:image" content="assets/vram-badge.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=6">
+  <link rel="icon" type="image/png" sizes="256x256 64x64 32x32 16x16" href="assets/favicon-badge.png?v=6">
+  <link rel="shortcut icon" href="assets/favicon.ico?v=6">
+  <link rel="apple-touch-icon" href="assets/favicon-badge.png?v=6">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="container nav-container" aria-label="Main Navigation">
+      <a href="#top" class="brand-link">
+        <img src="assets/vram-icon.png" alt="VRAM Logo" class="nav-logo">
+        <span class="brand-title">VRAM</span>
+      </a>
+
+      <ul class="nav-links">
+        <li>
+          <a href="#about" class="font-mono text-kicker nav-link-item">ABOUT</a>
+        </li>
+        <li>
+          <a href="#problem" class="font-mono text-kicker nav-link-item">THE PROBLEM</a>
+        </li>
+        <li>
+          <a href="#vram" class="font-mono text-kicker nav-link-item">$VRAM</a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#vram" class="btn btn-primary btn-sm">BUY $VRAM</a>
+        <a
+          href="https://x.com"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="VRAM on X"
+          class="icon-button"
+        >
+          <svg viewBox="0 0 24 24" style="width: 1rem; height: 1rem;" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+
+      <div class="container hero-content">
+        <div class="hero-left">
+          <p class="hero-enter font-mono text-kicker text-muted" style="animation-delay: 40ms;">
+            VRAM // MEMORY INFRASTRUCTURE
+          </p>
+
+          <h1 class="hero-enter text-display text-foreground" style="margin-top: 1.5rem; animation-delay: 120ms;">
+            HOW MUCH VRAM DO YOU HAVE?
+          </h1>
+
+          <p class="hero-enter text-subhead text-foreground" style="margin-top: 1.5rem; animation-delay: 220ms;">
+            It isn’t enough.
+          </p>
+
+          <p class="hero-enter text-muted" style="margin-top: 1.5rem; max-width: 24rem; font-size: 1rem; line-height: 1.625; animation-delay: 300ms;">
+            AI keeps getting bigger.<br>
+            Your VRAM doesn’t.
+          </p>
+
+          <div class="hero-enter hero-actions" style="animation-delay: 380ms;">
+            <a href="#vram" class="btn btn-primary btn-lg w-full sm-w-auto">GET $VRAM</a>
+            <button type="button" class="btn btn-secondary btn-lg w-full sm-w-auto" id="needMoreVramBtn">
+              I NEED MORE VRAM
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-enter" style="animation-delay: 280ms;">
+          <!-- Memory Module Visualizer -->
+          <figure class="memory-module" aria-label="GPU memory visualization. Status: insufficient.">
+            <div class="memory-header">
+              <div class="memory-header-left">
+                <div>
+                  <p class="font-mono text-kicker text-subtle">Memory</p>
+                  <p class="font-mono text-foreground" style="margin-top: 0.25rem; font-size: 0.75rem;">GDDR</p>
+                </div>
+                <div class="memory-capacity-wrap">
+                  <p class="font-mono text-kicker text-subtle">Capacity</p>
+                  <p class="font-mono text-foreground" style="margin-top: 0.25rem; font-size: 0.75rem;">NEVER ENOUGH</p>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <p class="font-mono text-kicker text-subtle">Status</p>
+                <p class="font-mono text-accent" style="margin-top: 0.25rem; font-size: 0.75rem;">INSUFFICIENT</p>
+              </div>
+            </div>
+
+            <div class="memory-body">
+              <div class="memory-hex-sidebar">
+                <span>0x0000</span>
+                <span>0x0010</span>
+                <span>0x0020</span>
+                <span>0x0030</span>
+                <span>0x0040</span>
+                <span>0x0050</span>
+                <span>0x0060</span>
+                <span>0x0070</span>
+              </div>
+              <div id="memoryGrid" class="memory-grid-cells"></div>
+            </div>
+
+            <figcaption class="memory-footer">
+              <span>
+                <span id="memAddr">ADDR 0x0030</span>
+                <span class="divider-slash">/</span>
+                <span id="memBank">BANK 06</span>
+              </span>
+              <span id="memAlloc" class="tabular-nums">ALLOC 97.4%</span>
+              <span class="mem-clock">CLOCK 21.0</span>
+              <span>LINK x16</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section id="problem" class="section">
+      <div class="container section-inner">
+        <div class="reveal">
+          <h2 class="text-section text-foreground">AI GOT BIGGER.</h2>
+        </div>
+
+        <div class="statement-stack">
+          <div class="reveal" style="animation-delay: 40ms;">
+            <p class="text-statement text-foreground">MODELS GOT BIGGER.</p>
+          </div>
+          <div class="reveal" style="animation-delay: 90ms;">
+            <p class="text-statement text-foreground">CONTEXT GOT LONGER.</p>
+          </div>
+          <div class="reveal" style="animation-delay: 140ms;">
+            <p class="text-statement text-muted">VRAM DIDN’T.</p>
+          </div>
+        </div>
+
+        <div class="ladder-container">
+          <div class="reveal" style="animation-delay: 0ms;">
+            <p class="text-subhead text-subtle">You bought 8GB.</p>
+            <p class="text-subhead text-foreground ladder-needed">You needed 12GB.</p>
+          </div>
+          <div class="reveal" style="animation-delay: 60ms;">
+            <p class="text-subhead text-subtle">You bought 12GB.</p>
+            <p class="text-subhead text-foreground ladder-needed">You needed 24GB.</p>
+          </div>
+          <div class="reveal" style="animation-delay: 120ms;">
+            <p class="text-subhead text-subtle">You bought 24GB.</p>
+            <p class="text-subhead text-foreground ladder-needed">You needed 80GB.</p>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top: 6rem; animation-delay: 80ms;">
+          <div class="accent-bar"></div>
+          <h3 class="text-section text-foreground" style="margin-top: 2rem;">
+            THERE IS <span class="text-accent">NEVER</span> ENOUGH.
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution Section -->
+    <section id="about" class="section">
+      <div class="container section-inner">
+        <div class="reveal">
+          <p class="font-mono text-kicker text-muted">Solution</p>
+          <h2 class="text-section text-foreground" style="margin-top: 1.25rem; max-width: 60rem;">
+            SO WE BUILT THE OBVIOUS SOLUTION.
+          </h2>
+        </div>
+
+        <div class="reveal" style="margin-top: 4rem; animation-delay: 80ms;">
+          <p class="text-display text-foreground">MORE VRAM.</p>
+        </div>
+
+        <div class="reveal" style="margin-top: 2.5rem; animation-delay: 140ms;">
+          <p class="text-muted" style="font-size: 1.125rem; max-width: 28rem;">
+            Unfortunately, we couldn’t afford it.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top: 6rem; animation-delay: 80ms;">
+          <p class="font-mono text-kicker text-subtle">Token</p>
+          <img src="assets/vram-icon.png" alt="VRAM Emblem" class="solution-emblem">
+          <p class="text-display text-accent" style="margin-top: 0.75rem;">$VRAM</p>
+          <p class="text-muted" style="margin-top: 1.5rem; max-width: 24rem; font-size: 1rem; line-height: 1.625;">
+            So we made the next best thing.
+          </p>
+          <div style="margin-top: 2rem;">
+            <a href="#vram" class="btn btn-primary btn-lg w-full sm-w-auto">GET $VRAM</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The VRAM Scale Section -->
+    <section class="section">
+      <div class="container section-inner">
+        <div class="reveal">
+          <p class="font-mono text-kicker text-muted">The VRAM Scale</p>
+        </div>
+
+        <div class="scale-grid">
+          <!-- 4GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 18%; --bar-mix: 18%; animation-delay: 0ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">4GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">CRITICAL</p>
+          </div>
+
+          <!-- 8GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 26%; --bar-mix: 28%; animation-delay: 70ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">8GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">INSUFFICIENT</p>
+          </div>
+
+          <!-- 16GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 36%; --bar-mix: 38%; animation-delay: 140ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">16GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">STILL INSUFFICIENT</p>
+          </div>
+
+          <!-- 24GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 46%; --bar-mix: 48%; animation-delay: 210ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">24GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">NOT EVEN CLOSE</p>
+          </div>
+
+          <!-- 48GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 58%; --bar-mix: 60%; animation-delay: 280ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">48GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">BETTER</p>
+          </div>
+
+          <!-- 80GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 72%; --bar-mix: 74%; animation-delay: 350ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">80GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">ACCEPTABLE</p>
+          </div>
+
+          <!-- 192GB -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar" style="height: 88%; --bar-mix: 90%; animation-delay: 420ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">192GB</p>
+            <p class="font-mono text-kicker text-subtle" style="margin-top: 0.25rem;">YOU UNDERSTAND</p>
+          </div>
+
+          <!-- ∞ -->
+          <div class="scale-column">
+            <div class="scale-track">
+              <div class="scale-track-inner">
+                <div class="scale-bar scale-bar-max" style="height: 100%; --bar-mix: 100%; animation-delay: 490ms;"></div>
+              </div>
+            </div>
+            <p class="font-mono text-foreground tabular-nums" style="margin-top: 1rem; font-size: 0.875rem;">∞</p>
+            <p class="font-mono text-kicker text-accent" style="margin-top: 0.25rem;">VRAM ACHIEVED</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Token Section -->
+    <section id="vram" class="section">
+      <div class="container section-inner">
+        <div class="reveal">
+          <h2 class="text-section text-foreground">CAN’T BUY MORE VRAM?</h2>
+          <p class="text-section text-accent" style="margin-top: 1.25rem;">BUY $VRAM.</p>
+        </div>
+
+        <div class="reveal" style="margin-top: 2rem; max-width: 32rem; animation-delay: 80ms;">
+          <p class="text-muted" style="font-size: 1rem; line-height: 1.625;">
+            For everyone who has opened a GPU requirements page and immediately closed it.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top: 4rem; animation-delay: 100ms;">
+          <div class="token-grid">
+            <div>
+              <dl class="specs-list">
+                <div class="spec-row">
+                  <dt class="font-mono text-kicker text-subtle spec-dt">TOKEN</dt>
+                  <dd class="spec-dd">$VRAM</dd>
+                </div>
+                <div class="spec-row">
+                  <dt class="font-mono text-kicker text-subtle spec-dt">PAIR</dt>
+                  <dd class="spec-dd">NVDA</dd>
+                </div>
+                <div class="spec-row">
+                  <dt class="font-mono text-kicker text-subtle spec-dt">NETWORK</dt>
+                  <dd class="spec-dd">[NETWORK]</dd>
+                </div>
+                <div class="spec-row">
+                  <dt class="font-mono text-kicker text-subtle spec-dt">CONTRACT</dt>
+                  <dd class="spec-dd">[CONTRACT ADDRESS]</dd>
+                </div>
+              </dl>
+
+              <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem;" class="sm-flex-row">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-lg w-full sm-w-auto"
+                  id="copyContractBtn"
+                >
+                  <span class="copy-icon-box" id="copyIconBox">
+                    <!-- Copy Icon -->
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                    <!-- Check Icon -->
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5"/>
+                    </svg>
+                  </span>
+                  COPY CONTRACT
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg w-full sm-w-auto"
+                  id="buyVramBtnToken"
+                >
+                  BUY $VRAM
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <div class="token-card">
+                <img src="assets/vram-badge.png" alt="$VRAM Official Logo" class="token-badge-image" loading="lazy">
+                <div class="token-card-caption">
+                  <span class="font-mono text-kicker text-subtle">OFFICIAL MEME TOKEN</span>
+                  <span class="status-dot"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagnostics / Eggs Section -->
+    <section class="section-eggs">
+      <div class="container eggs-inner">
+        <p class="font-mono text-kicker text-subtle">Diagnostic</p>
+        <div class="eggs-buttons">
+          <button type="button" class="btn btn-quiet btn-sm" id="eggCpuBtn">USE CPU</button>
+          <button type="button" class="btn btn-quiet btn-sm" id="eggGpuBtn">BUY ANOTHER GPU</button>
+          <button type="button" class="btn btn-quiet btn-sm" id="eggVramBtn">MORE VRAM</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section">
+      <div class="container final-cta-inner">
+        <div class="reveal" style="display: flex; flex-direction: column; align-items: center;">
+          <h2 class="text-display text-foreground">STILL INSUFFICIENT.</h2>
+          <p class="text-muted" style="margin-top: 1.5rem; max-width: 28rem; font-size: 1rem;">
+            There will never be enough VRAM.
+          </p>
+          <div style="margin-top: 2.5rem;">
+            <a href="#vram" class="btn btn-primary btn-lg" style="min-width: 11rem;">GET $VRAM</a>
+          </div>
+          <img src="assets/vram-icon.png" alt="VRAM Emblem" class="final-emblem">
+          <p class="font-mono text-kicker text-subtle" style="margin-top: 4rem;">$VRAM</p>
+          <p class="font-mono text-muted" style="margin-top: 0.75rem; font-size: 0.75rem; letter-spacing: 0.025em;">
+            INSUFFICIENT MEMORY. INFINITE MEME.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div style="display: flex; align-items: center; gap: 0.625rem;">
+        <img src="assets/vram-icon.png" alt="VRAM Logo" class="footer-logo">
+        <span style="font-size: 0.875rem; font-weight: 500; letter-spacing: var(--tracking-nav); color: var(--color-foreground);">
+          VRAM
+        </span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a
+          href="https://x.com"
+          target="_blank"
+          rel="noreferrer"
+          class="footer-link"
+        >
+          <svg viewBox="0 0 24 24" style="width: 0.875rem; height: 0.875rem;" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          X
+        </a>
+        <a href="#vram" class="footer-link">CONTRACT</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p style="max-width: 36rem; font-size: 0.75rem; line-height: 1.625; color: var(--color-subtle);">
+        $VRAM is an independent meme project and is not affiliated with NVIDIA.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="noticeContainer" class="notice-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
