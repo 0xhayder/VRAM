@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;700;800&display=swap");
 
 :root {
   --color-background: #050505;
@@ -374,7 +374,9 @@ button:not(:disabled),
 /* Hero Section */
 .hero-section {
   position: relative;
-  min-height: calc(100svh - var(--nav-height, 4rem));
+  min-height: calc(100svh - var(--nav-height, 4.5rem));
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -412,28 +414,59 @@ button:not(:disabled),
 .hero-content {
   position: relative;
   display: grid;
-  min-height: calc(100svh - var(--nav-height, 4rem));
+  width: 100%;
   align-items: center;
-  gap: 3rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  gap: 2.5rem;
+  padding-top: clamp(1.5rem, 3.5vh, 2.75rem);
+  padding-bottom: clamp(1.5rem, 3.5vh, 2.75rem);
 }
 
 @media (min-width: 1024px) {
   .hero-content {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 3.5rem;
+    padding-top: clamp(1.5rem, 4vh, 3rem);
+    padding-bottom: clamp(1.5rem, 4vh, 3rem);
   }
 }
 
 .hero-left {
-  max-width: 48rem;
+  max-width: 44rem;
+}
+
+.hero-title {
+  font-size: clamp(2.35rem, 4.4vw, 3.85rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--color-foreground);
+  margin-top: 0;
+  text-wrap: balance;
+}
+
+.hero-vram-word {
+  font-family: "Space Grotesk", var(--font-sans);
+  font-weight: 800;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+  display: inline-block;
+  text-shadow: 0 0 28px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.hero-subhead {
+  margin-top: 1.25rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+}
+
+.hero-desc {
+  margin-top: 1rem;
+  max-width: 28rem;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .hero-actions {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
