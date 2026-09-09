@@ -4,7 +4,7 @@
 
 $VRAM is a meme built around the eternal struggle for more GPU memory.
 
-![VRAM](./assets/og-image.png)
+[![VRAM](./assets/og-image.png)](https://vram.lol)
 
 ### Links
 
